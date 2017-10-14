@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { NavController } from 'ionic-angular';
+import { PaymentDetailsListComponent } from '../payment-details-list/payment-details-list'
 
 /**
  * Generated class for the StudentListComponent component.
@@ -12,10 +14,19 @@ import { Component } from '@angular/core';
 })
 export class StudentListComponent {
   students: Array<any> = [];
-  constructor() {
+  goToPaymentDetailsListCallBack: Function;
+  constructor(public navCtrl: NavController) {
     this.students.push({name:'Prashanth', payment:'100'});
     this.students.push({name:'Abhishek', payment:'50'});
     this.students.push({name:'Swami', payment:'150'});
+  }
+
+  public ngOnInit(){
+    this.goToPaymentDetailsListCallBack = this.goToPaymentDetailsList.bind(this);
+  }
+  
+  goToPaymentDetailsList(){
+    this.navCtrl.push(PaymentDetailsListComponent);
   }
 
 }

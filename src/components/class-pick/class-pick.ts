@@ -13,14 +13,22 @@ import { StudentListComponent } from '../../components/student-list/student-list
 })
 export class ClassPickComponent {
   classes = [];
+  goToStudentListCallBack : Function;
+  
   constructor(public navCtrl:NavController) {
     this.classes.push({ data:'IX'});
     this.classes.push({ data:'X'});
     this.classes.push({ data:'XI'});
     this.classes.push({ data:'XII'});
   }
+
+  public ngOnInit(){
+    //The below is done is to maintain context.
+    //The below function is passed to the card context so as to execute when the card is clicked
+    this.goToStudentListCallBack = this.goToStudentList.bind(this);
+  }
+
   goToStudentList(){
-    //this.navCtrl.push(StudentListComponent);
-    alert('test');
+    this.navCtrl.push(StudentListComponent);
   }
 }
