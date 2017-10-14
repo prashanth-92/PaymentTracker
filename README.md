@@ -1,3 +1,5 @@
+## Payment Tracker Application
+
 This is a payment tracker application built to track installments paid by students.
 
 ## Built on Ionic 3 and Angular
